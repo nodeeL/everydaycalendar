@@ -1,0 +1,138 @@
+* {
+    border: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: black;
+}
+.head {
+    font-size: 150%;
+/*    grid-column: 1 / -1; /**/
+    padding: 5px;
+    background-color: darkcyan;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin: .5em 0;
+}
+.grid {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 1em;
+    justify-items: center;
+    justify-content: center;
+}
+.grid-label {
+    background-color: lightseagreen;
+    border-radius: 5px;
+    padding: 5px;
+}
+.grid-month {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    height: fit-content;
+}
+.month {
+    font-weight: bold;
+    text-transform: lowercase;
+    color: #5a3d18;
+}
+.day-frame {
+    display: grid;
+}
+.tick {
+    border-radius: 50%;
+}
+.submit {
+    justify-self: center;
+}
+
+
+/* The grid-day */
+.grid-day {
+    position: relative;
+    cursor: pointer;
+    padding-top: 8px;
+    height: 28px;
+    width: 36px;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: bold;
+    color: #5a3d18;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .day-frame input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36px;
+    width: 36px;
+    background-color: #6f5449;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    z-index: -1;
+/*    border-radius: 50%;/**/
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .day-frame:hover label .custom:before {
+    background-color: #efcf0f;
+  }/**/
+  .grid-day:hover {
+    color: #efcf0f;
+  }/**/
+  
+  /* When the checkbox is checked, add a blue background */
+ /* .grid-day input:checked ~ .custom {
+    background-color: #2196F3;
+    border-radius: 50%;
+  }/**/
+  
+  /* Create the custom/indicator (hidden when not checked) */
+  .custom:before {
+    content: "";
+    position: absolute;
+  }
+  .custom:after {
+    content: "";
+    position: absolute;
+  }
+  
+  /* Show the custom when checked */
+  .day-frame input:checked + label .custom:before {
+    background-color: #efcf0f;
+  }
+  .day-frame input:checked + label {
+    color: #efcf0f;
+  }
+  
+  /* Style the custom/indicator */
+  .grid-day .custom:before {
+    left: 3px;
+    top: 3px;
+    width: 30px;
+    height: 30px;
+    background-color: #5a3d18;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+  .grid-day .custom:after {
+    left: 6px;
+    top: 6px;
+    width: 24px;
+    height: 24px;
+    background-color: #6f5449;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
